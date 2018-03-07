@@ -1,9 +1,9 @@
 name: c-storable
-version: 0.1
+version: 0.2
 cabal-version: >= 1.8
 build-type: Simple
-synopsis: Replacement for Storable class that omits non-C types
-description: See README.
+synopsis: CStorable class
+description: Replacement for Storable class that omits non-C types
 category: Haskell, Development
 license: BSD3
 license-file: LICENSE
@@ -20,7 +20,7 @@ source-repository head
 
 library
     build-depends:
-        base
+        base <5
     exposed-modules:
         ForeignC
     hs-source-dirs: src
