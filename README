@@ -1,0 +1,14 @@
+When binding to C via hsc2hs, you are expected to write your own Storable
+instances, and manually poke struct fields with any Storable type.  Since all
+manner of non-C types are in Storable, it's easy to accidentally poke a Char
+instead of CChar, at which point you have memory corruption that may be very
+difficult to track down.
+
+One such bug was enough for me, so I created a parallel CStorable class that
+prevents that kind of bug by only including C types.
+
+If you are writing a new C binding, I recommend something higher-level than
+hsc2hs, such as c2hs, which I think should sidestep the problem entirely by
+verifying your types.  But if you are already using hsc2hs and for whatever
+reason don't want subtle memory corruption bugs, you can import ForeignC
+instead of Foreign and Foreign.C, and see if you have any.
