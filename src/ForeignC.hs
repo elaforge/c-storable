@@ -231,3 +231,9 @@ with :: (CStorable a) => a -> (Ptr a -> IO b) -> IO b
 with val f = alloca $ \ptr -> do
     poke ptr val
     f ptr
+
+new :: (CStorable a) => a -> IO (Ptr a)
+new val  = do
+    ptr <- malloc
+    poke ptr val
+    return ptr
