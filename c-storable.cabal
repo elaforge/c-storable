@@ -1,6 +1,6 @@
 name: c-storable
 version: 0.3
-cabal-version: >= 1.8
+cabal-version: >= 1.10
 build-type: Simple
 synopsis: CStorable class
 description: Replacement for Storable class that omits non-C types
@@ -25,3 +25,4 @@ library
         ForeignC
     hs-source-dirs: src
     ghc-options: -Wall -fno-warn-name-shadowing
+    default-language: Haskell2010
